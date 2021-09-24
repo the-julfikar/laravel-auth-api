@@ -27,4 +27,6 @@ Route::post("login",[UserController::class,'login']);
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get("hello",[DemoController::class,'hii']);
 
+    Route::post("logout",[UserController::class,'logout']);
+
     });

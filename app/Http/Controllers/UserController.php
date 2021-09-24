@@ -62,4 +62,13 @@ class UserController extends Controller
             return response()->json(['msg'=>'Unauthorized Access Attempt...'],203);   
         }
     }
+
+    public function logout(Request $request)
+    {
+        $token=$request->user()->token();
+        $token->revoke();
+        $response=["msg"=>"Successfully logged out | :) "];
+
+        return response($response,200);
+    }
 }
